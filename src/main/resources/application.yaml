@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: reservations
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservations
+    username: postgres
+    password: root
+server:
+  port: 8080
+
+jwt:
+  #secret: ${JWT_SECRET}
+  secret: aEIu9S7cvZUnPJWezau3rKUCxj4BLtpCVzhVSyam93prJOxofs7688P0OD5tmTIsLL6u7G9HpXvT
+
+
+#Para tener dinamico el url del front, util para el CORS
+app:
+  front:
+    url: http://localhost:4200
+  
