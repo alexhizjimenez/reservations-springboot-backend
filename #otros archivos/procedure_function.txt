@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION fn_list_reservations_v2 () 
+ RETURNS TABLE (quantity INT, reservationdate TEXT) 
+AS $$
+BEGIN
+    RETURN QUERY 
+    SELECT 
+        (count(*)::int), 
+        to_char(check_in_date, 'dd/MM/yyyy')
+    FROM reservations
+    GROUP BY 2 -- Agrupa por el segundo campo (la fecha formateada)
+    ORDER BY 2 ASC;
+END; $$ 
+LANGUAGE 'plpgsql';
